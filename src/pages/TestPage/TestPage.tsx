@@ -1,11 +1,4 @@
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  Fab,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Card, CardContent, CardHeader, Fab, Stack } from "@mui/material";
 
 const questions = [
   {
