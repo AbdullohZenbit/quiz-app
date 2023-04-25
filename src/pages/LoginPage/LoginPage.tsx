@@ -6,7 +6,6 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import axios from "axios";
 import { FieldValues, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
@@ -14,14 +13,8 @@ export const LoginPage = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const onSubmit = async (data: FieldValues) => {
-    try {
-      const res = await axios.post(`http://207.154.245.119/api/users`, data);
-      if (res.status === 201) {
-        localStorage.setItem("user", data.firstName);
-        navigate("/tests");
-      }
-    } catch (error) {}
-    console.log(data);
+    localStorage.setItem("user", data.firstName);
+    navigate("/tests");
   };
   return (
     <Card
