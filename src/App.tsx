@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Box, styled } from "@mui/material";
+import { LoginPage, TestPage } from "./pages";
+import { Route, Routes } from "react-router-dom";
+
+const HomeContainer = styled(Box)({
+  width: "100vw",
+  height: "100vh",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HomeContainer>
+      <Routes>
+        <Route path='/' element={<LoginPage />} />
+        <Route path='/tests' element={<TestPage />} />
+      </Routes>
+    </HomeContainer>
   );
 }
 
