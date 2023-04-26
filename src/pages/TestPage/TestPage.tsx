@@ -74,22 +74,150 @@ const questions = [
     ],
   },
   {
-    question: "What is your Name 4",
+    question:
+      " _____ refers to the ability of human to contribute to the process of value-addition in the economy. _____ refers to the ability of human to contribute to the process of value-addition in the economy.",
     variants: [
       {
-        text: "Abdulloh",
+        text: "Human capital",
+        isCorrect: false,
+      },
+      {
+        text: "Human Resource",
         isCorrect: true,
       },
       {
-        text: "Azam",
+        text: "Human capital formation",
         isCorrect: false,
       },
       {
-        text: "Asror",
+        text: "None of these",
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    question: "Both human capital and_____ are related to each other.",
+    variants: [
+      {
+        text: "Human resource",
         isCorrect: false,
       },
       {
-        text: "Sardor",
+        text: "Human being",
+        isCorrect: false,
+      },
+      {
+        text: "Human development",
+        isCorrect: true,
+      },
+      {
+        text: "All of these",
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    question: "____ refers to the produced means of production.",
+    variants: [
+      {
+        text: "Physical capital",
+        isCorrect: false,
+      },
+      {
+        text: "Both a and c",
+        isCorrect: true,
+      },
+      {
+        text: "Human development",
+        isCorrect: false,
+      },
+      {
+        text: "Human capital",
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    question: "Addition to the stock of capital can be done by___",
+    variants: [
+      {
+        text: "Expenditure on Education",
+        isCorrect: false,
+      },
+      {
+        text: "Expenditure on Health",
+        isCorrect: false,
+      },
+      {
+        text: "Study Programme for adults",
+        isCorrect: false,
+      },
+      {
+        text: " All of these",
+        isCorrect: true,
+      },
+    ],
+  },
+  {
+    question: "Problems in Human Capital Formation is",
+    variants: [
+      {
+        text: "Low academic standards",
+        isCorrect: false,
+      },
+      {
+        text: " Brain Drain",
+        isCorrect: false,
+      },
+      {
+        text: " Rising population",
+        isCorrect: false,
+      },
+      {
+        text: "All of these",
+        isCorrect: true,
+      },
+    ],
+  },
+  {
+    question: "___ is a much wider concept than literacy.",
+    variants: [
+      {
+        text: "Education",
+        isCorrect: true,
+      },
+      {
+        text: "Health",
+        isCorrect: false,
+      },
+      {
+        text: "Income",
+        isCorrect: false,
+      },
+      {
+        text: "None of these",
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    question:
+      "Which institution is the primary funding authority for universities?",
+    variants: [
+      {
+        text: " NCERT",
+        isCorrect: false,
+      },
+      {
+        text: "AICTE",
+        isCorrect: false,
+      },
+      {
+        text: "ICMR",
+        isCorrect: true,
+      },
+      {
+        text: "UGC",
         isCorrect: false,
       },
     ],
