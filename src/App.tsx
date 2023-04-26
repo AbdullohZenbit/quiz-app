@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 const HomeContainer = styled(Box)({
   width: "100vw",
   height: "100vh",
+  background: "#3c8481a6",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",

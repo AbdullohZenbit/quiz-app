@@ -20,7 +20,7 @@ export const LoginPage = () => {
     <Card
       component='form'
       onSubmit={handleSubmit(onSubmit)}
-      sx={{ width: 400, height: 300 }}
+      sx={{ minWidth: 400, height: 300 }}
     >
       <CardContent
         component={Stack}
@@ -29,18 +29,20 @@ export const LoginPage = () => {
         alignItems='center'
         justifyContent='space-between'
       >
-        <Typography variant='h5'>Login</Typography>
+        <Typography sx={{ color: "#09198d" }} variant='h5'>
+          Login
+        </Typography>
         <TextField
-          {...register("firstName", { minLength: 4 })}
+          {...register("firstName", { minLength: 4, required: true })}
           fullWidth
           label='firstName'
         />
         <TextField
-          {...register("lastName", { minLength: 4 })}
+          {...register("lastName", { minLength: 4, required: true })}
           fullWidth
           label='lastName'
         />
-        <Button type='submit' variant='contained'>
+        <Button fullWidth type='submit' variant='outlined'>
           Submit
         </Button>
       </CardContent>

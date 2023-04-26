@@ -6,68 +6,69 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { shuffleArr } from "../utils/shuffle";
 
 const questions = [
   {
-    question: "What is your Name 1",
+    question: "Types of human capital ____ ",
     variants: [
       {
-        text: "Abdulloh",
+        text: "Knowledge capital",
+        isCorrect: false,
+      },
+      {
+        text: "Social capital",
+        isCorrect: false,
+      },
+      {
+        text: "Emotional capital",
+        isCorrect: false,
+      },
+      {
+        text: "All of the above",
+        isCorrect: true,
+      },
+    ],
+  },
+  {
+    question: "Which of the following is NOT a characteristic of human capital",
+    variants: [
+      {
+        text: "A person's experience",
         isCorrect: true,
       },
       {
-        text: "Azam",
+        text: "A person's education level",
         isCorrect: false,
       },
       {
-        text: "Asror",
+        text: "A person's health",
         isCorrect: false,
       },
       {
-        text: "Sardor",
+        text: "A person's financial wealth",
         isCorrect: false,
       },
     ],
   },
   {
-    question: "What is your Name 2",
+    question: "Why is it important to invest in human capital?",
     variants: [
       {
-        text: "Abdulloh",
+        text: "To increase your company's ranking",
         isCorrect: true,
       },
       {
-        text: "Azam",
+        text: "To increase your company's economic performance",
         isCorrect: false,
       },
       {
-        text: "Asror",
+        text: "To increase your company's revenue",
         isCorrect: false,
       },
       {
-        text: "Sardor",
-        isCorrect: false,
-      },
-    ],
-  },
-  {
-    question: "What is your Name 3",
-    variants: [
-      {
-        text: "Abdulloh",
-        isCorrect: true,
-      },
-      {
-        text: "Azam",
-        isCorrect: false,
-      },
-      {
-        text: "Asror",
-        isCorrect: false,
-      },
-      {
-        text: "Sardor",
+        text: "To decrease your company's competitiveness",
         isCorrect: false,
       },
     ],
@@ -96,8 +97,12 @@ const questions = [
 ];
 
 export const TestPage = () => {
+  const shufledQuestion = useMemo(() => shuffleArr(questions), []);
+  console.log(shufledQuestion);
+
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showResult, setShowResult] = useState(false);
+  const [time, setTime] = useState(300);
   const [score, setScore] = useState(0);
   const handleNextQuestion = (isCorrect: boolean) => {
     if (isCorrect) {
@@ -110,31 +115,59 @@ export const TestPage = () => {
       setShowResult(true);
     }
   };
+  console.log(time);
+
+  useEffect(() => {
+    const intervale = setInterval(() => {
+      if (time === 0) {
+        setShowResult(true);
+      }
+      setTime((prev) => prev - 1);
+    }, 1000);
+    return () => clearInterval(intervale);
+  }, [time]);
 
   return (
     <Card component={Stack} minWidth={400}>
       {!showResult && (
         <CardHeader
-          title={`Question   ${currentQuestion + 1}/${questions.length}`}
+          title={
+            <Stack
+              direction='row'
+              alignItems='center'
+              justifyContent='space-between'
+            >
+              {`Question ${currentQuestion + 1}/${questions.length}`}
+              <Typography variant='h4'>{time}</Typography>
+            </Stack>
+          }
+          sx={{ color: "#09198d" }}
         />
       )}
 
       <CardContent component={Stack} direction='column' spacing={2}>
         {showResult ? (
-          <Typography>Your score is {score}</Typography>
+          <Typography sx={{ color: "#09198d" }}>
+            Your score is {score}
+          </Typography>
         ) : (
           <>
-            <Typography>{questions[currentQuestion].question} ?</Typography>
-            {questions[currentQuestion].variants.map(({ isCorrect, text }) => {
-              return (
-                <Fab
-                  onClick={() => handleNextQuestion(isCorrect)}
-                  variant='extended'
-                >
-                  {text}
-                </Fab>
-              );
-            })}
+            <Typography sx={{ color: "#09198d" }}>
+              {questions[currentQuestion].question} ?
+            </Typography>
+            {shufledQuestion[currentQuestion].variants.map(
+              ({ isCorrect, text }: any) => {
+                return (
+                  <Fab
+                    key={text}
+                    onClick={() => handleNextQuestion(isCorrect)}
+                    variant='extended'
+                  >
+                    {text}
+                  </Fab>
+                );
+              }
+            )}
           </>
         )}
       </CardContent>
