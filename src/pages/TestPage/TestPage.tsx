@@ -75,7 +75,7 @@ const questions = [
   },
   {
     question:
-      " _____ refers to the ability of human to contribute to the process of value-addition in the economy. _____ refers to the ability of human to contribute to the process of value-addition in the economy.",
+      " _____ refers to the ability of human to contribute to the process of value-addition in the economy.",
     variants: [
       {
         text: "Human capital",
